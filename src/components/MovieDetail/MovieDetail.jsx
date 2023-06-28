@@ -29,21 +29,21 @@ const MovieDetail = () => {
 
   return (
     <>
-      <NavLink to={backLinkHref.current}>
-        <button className={css.MoviesDetailBtn}><span className={css.MoviesDetailBtn2}>Go Back</span></button>
-      </NavLink>
       {movieDetail && (
         <>
           <div className={css.container}>
+            <NavLink to={backLinkHref.current}>
+              <button className={css.MoviesDetailBtn}>Go Back</button>
+            </NavLink>
             <BasicInformation movieDetail={movieDetail} />
-            <AdditionInformation/>
+            <AdditionInformation />
           </div>
         </>
       )}
       {error && (
         <h3>
-          <p>There were errors on the server.</p>
-          <p> We will try to resolve this issue as soon as possible.</p>
+          <b>There were errors on the server.</b>
+          <b> We will try to resolve this issue as soon as possible.</b>
         </h3>
       )}
     </>
