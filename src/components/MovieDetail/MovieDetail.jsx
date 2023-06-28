@@ -1,8 +1,9 @@
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { getMovieDetails } from '../../services/services';
-import { NavLink } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { BasicInformation } from 'components/BasicInformation/BasicInformation';
+import { AdditionInformation } from 'components/AdditionInformation/AdditionInformation';
+import css from './MovieDetail.module.css';
 
 const MovieDetail = () => {
   const [movieDetail, setMovieDetail] = useState([]);
@@ -26,44 +27,16 @@ const MovieDetail = () => {
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/');
 
-  const { poster_path, original_title, overview, vote_average, genres } =
-    movieDetail;
   return (
     <>
       <NavLink to={backLinkHref.current}>
-        <button>Go back</button>
+        <button className={css.MoviesDetailBtn}><span className={css.MoviesDetailBtn2}>Go Back</span></button>
       </NavLink>
       {movieDetail && (
         <>
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-              alt="placard"
-            />
-            <h2>{original_title}</h2>
-            <p>{Math.round(vote_average * 10)} %</p>
-            <h4>Overview</h4>
-            <p>{overview}</p>
-            <h4>Genres</h4>
-            <ul>
-              {genres?.map(item => (
-                <li key={item.id}>
-                  <p>{item.name}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h5>Addition information</h5>
-            <ul>
-              <li>
-                <NavLink to="Cast">Cast</NavLink>
-              </li>
-              <li>
-                <NavLink to="Reviews">Reviews</NavLink>
-              </li>
-            </ul>
-            <Outlet />
+          <div className={css.container}>
+            <BasicInformation movieDetail={movieDetail} />
+            <AdditionInformation/>
           </div>
         </>
       )}

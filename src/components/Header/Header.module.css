@@ -1,0 +1,32 @@
+/* Стилі для заголовку */
+.header {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  /* Стилі для контейнера з посиланнями */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  /* Стилі для посилань */
+  .container .NavLink {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .container .NavLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* Стилі для активного посилання */
+  .container .NavLink.active {
+    font-weight: bold;
+  }
+
+  

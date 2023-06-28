@@ -1,7 +1,7 @@
 import { getMovieReviews } from '../../services/services';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useState, useEffect, useRef } from 'react';
+import { useParams, NavLink, useLocation } from 'react-router-dom';
+import css from './Reviews.module.css'
 const Reviews = () => {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -28,21 +28,30 @@ const Reviews = () => {
     fetchReviews();
   }, [id]);
 
+  const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? `/movies/${id}`);
+
   return (
     <>
-      {error && <p>Sorry, there are some problems. Try to come back a little later.</p>}
+      <NavLink to={backLinkHref.current}>
+        <button className={css.reviewsBtn}>👆roll up</button>
+      </NavLink>
+      {error && (
+        <b>Sorry, there are some problems. Try to come back a little later.</b>
+      )}
 
-      {isEmpty && <p>There are no reviews at this time</p>}
+      {isEmpty && <b>There are no reviews at this time</b>}
 
-      {reviews &&
-        reviews.map(({ id, author, content }) => (
-          <ul key={id}>
+      {reviews && (
+        <ul key={id}>
+          {reviews.map(({ id, author, content }) => (
             <li>
               <b>{author}</b>
               <p>{content}</p>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
+      )}
     </>
   );
 };

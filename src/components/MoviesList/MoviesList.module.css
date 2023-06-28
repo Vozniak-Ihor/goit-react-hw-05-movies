@@ -1,0 +1,25 @@
+/* Стилі для списку фільмів */
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  font-weight: 450;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  display: inline-block;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

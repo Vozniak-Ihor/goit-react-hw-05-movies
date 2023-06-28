@@ -1,0 +1,37 @@
+.titleAddition {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.listAddition {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.itemAddition {
+  padding: 10px;
+  font-weight: 450;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+.itemAddition:hover {
+  transform: scale(0.99);
+}
+.linkAddition {
+  text-decoration: none;
+  color: #333;
+  display: inline-block;
+}
+
+.linkAddition.active {
+  font-weight: bold;
+  color: #ff4081;
+}
+
+.linkAddition:hover {
+  text-decoration: underline;
+}
