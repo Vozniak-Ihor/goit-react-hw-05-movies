@@ -22,6 +22,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  transition: all 0.8s ease;
 }
 .MoviesDetailBtn:hover{
   background-color:#ddd ;

@@ -11,6 +11,11 @@
     overflow: hidden;
     cursor: pointer;
     margin-bottom: 20px;
+    transition: all 0.5s ease;
+}
+
+.castBtn:hover{
+  background-color: #4e4e4e;
 }
 .castList {
     display: flex;

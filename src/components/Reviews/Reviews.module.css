@@ -1,14 +1,19 @@
-.reviewsBtn{
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #333333;
-    border: none;
-    border-radius: 5px;
-    overflow: hidden;
-    cursor: pointer;
-    margin-bottom: 20px;
+.reviewsBtn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.5s ease;
+}
+
+.reviewsBtn:hover {
+  background-color: #4e4e4e;
 }
