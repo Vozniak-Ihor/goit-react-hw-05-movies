@@ -20,7 +20,7 @@ export const BasicInformation = ({ movieDetail }) => {
         </div>
         <div>
           <h2 className={css.title}>{original_title}</h2>
-          <p className={css.voteAverage}>{Math.round(vote_average * 10)} %</p>
+          <p className={css.voteAverage}>{Number(Math.round(vote_average * 10))} %</p>
           <h4 className={css.titleOverview}>Overview</h4>
           <p className={css.Overview}>{overview}</p>
           <h4 className={css.titleGenres}>Genres</h4>
