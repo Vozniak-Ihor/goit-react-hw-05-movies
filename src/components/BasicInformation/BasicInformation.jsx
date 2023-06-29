@@ -1,4 +1,5 @@
 import React from 'react';
+import film_banner from '../../icon/film_banner.png'
 import css from './BasicInformation.module.css';
 
 export const BasicInformation = ({ movieDetail }) => {
@@ -8,11 +9,14 @@ export const BasicInformation = ({ movieDetail }) => {
     <div className={css.container}>
       <div className={css.containerMovieDetail}>
         <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-            alt="placard"
-            className={css.img}
-          />
+          {poster_path && (
+            <img
+              src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+              alt="placard"
+              className={css.img}
+            />
+          )}
+          {!poster_path && <img src={film_banner} alt="placard" className={css.img2} />}
         </div>
         <div>
           <h2 className={css.title}>{original_title}</h2>

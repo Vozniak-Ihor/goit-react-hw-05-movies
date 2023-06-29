@@ -1,5 +1,7 @@
-import { NavLink ,Outlet} from 'react-router-dom';
-import css from './AdditionInformation.module.css'
+import { NavLink, Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
+import css from './AdditionInformation.module.css';
 
 export const AdditionInformation = () => {
   return (
@@ -17,7 +19,9 @@ export const AdditionInformation = () => {
           </NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Loader></Loader>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

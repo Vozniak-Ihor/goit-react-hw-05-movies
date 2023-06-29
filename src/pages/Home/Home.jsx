@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <>
       <div className={css.container}>
-        <h1 className={css.title}>Trending today</h1>
+        <h1 className={css.title}><span className={css.gg}></span> Trending today</h1>
         <ul className={css.list}>
           {movies &&
             movies.map(({ id, title, name }) => (

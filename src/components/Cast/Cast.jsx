@@ -1,7 +1,9 @@
 import { getMovieCast } from '../../services/services';
 import { useState, useEffect, useRef } from 'react';
-import { useParams ,NavLink,useLocation} from 'react-router-dom';
-import css from './Cast.module.css'
+import { useParams, NavLink, useLocation } from 'react-router-dom';
+import css from './Cast.module.css';
+import Actor from '../../icon/Actor.png'
+
 const Cast = () => {
   const [cast, setCast] = useState([]);
   const [error, setError] = useState(null);
@@ -23,7 +25,7 @@ const Cast = () => {
 
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? `/movies/${id}`);
-  
+
   return (
     <>
       <NavLink to={backLinkHref.current}>
@@ -34,22 +36,30 @@ const Cast = () => {
         <b>Sorry, there are some problems. Try to come back a little later.</b>
       )}
 
-   {cast && (
-  <ul key={id} className={css.castList}>
-    {cast.map(({ id, name, character, profile_path }) => (
-      <li className={css.castItem} key={id}>
-        <img
-          src={`https://image.tmdb.org/t/p/w300/${profile_path}`}
-          alt={name}
-          className={css.castImg}
-        />
-        <b className={css.castName}>{name}</b>
-        <p className={css.castCharacter}>{character}</p>
-      </li>
-    ))}
-  </ul>
-)}
-
+      {cast && (
+        <ul className={css.castList}>
+          {cast.map(({ id, name, character, profile_path }) => (
+            <li className={css.castItem} key={id}>
+              {profile_path && (
+                <img
+                  src={`https://image.tmdb.org/t/p/w300/${profile_path}`}
+                  alt={name}
+                  className={css.castImg}
+                />
+              )}
+              {!profile_path && (
+                <img
+                  src={Actor}
+                  alt={name}
+                  className={css.castImg2}
+                />
+              )}
+              <b className={css.castName}>{name}</b>
+              <p className={css.castCharacter}>{character}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 };

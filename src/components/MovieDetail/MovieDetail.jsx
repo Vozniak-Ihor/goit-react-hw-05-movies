@@ -1,5 +1,5 @@
 import { useParams, useLocation, NavLink } from 'react-router-dom';
-import { useState, useEffect, useRef, Suspense } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getMovieDetails } from '../../services/services';
 import { BasicInformation } from 'components/BasicInformation/BasicInformation';
 import { AdditionInformation } from 'components/AdditionInformation/AdditionInformation';

@@ -1,7 +1,7 @@
 import { getMovieReviews } from '../../services/services';
 import { useState, useEffect, useRef } from 'react';
 import { useParams, NavLink, useLocation } from 'react-router-dom';
-import css from './Reviews.module.css'
+import css from './Reviews.module.css';
 const Reviews = () => {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -43,9 +43,9 @@ const Reviews = () => {
       {isEmpty && <b>There are no reviews at this time</b>}
 
       {reviews && (
-        <ul key={id}>
+        <ul>
           {reviews.map(({ id, author, content }) => (
-            <li>
+            <li key={id}>
               <b>{author}</b>
               <p>{content}</p>
             </li>

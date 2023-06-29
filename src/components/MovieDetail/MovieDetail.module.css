@@ -24,8 +24,8 @@
   overflow: hidden;
   transition: all 0.8s ease;
 }
-.MoviesDetailBtn:hover{
-  background-color:#ddd ;
+.MoviesDetailBtn:hover {
+  background-color: #ddd;
 }
 
 .MoviesDetailBtn:before {
@@ -50,29 +50,3 @@
   outline: none;
   box-shadow: 0 0 0 2px #333;
 }
-
-.MoviesDetailBtn:focus:before {
-  width: 15px;
-  height: 15px;
-}
-
-.MoviesDetailBtn:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  width: 2px;
-  height: 20px;
-  background-color: #333;
-  transition: all 0.3s ease;
-}
-
-.MoviesDetailBtn:hover:after {
-  height: 20px;
-}
-
-.MoviesDetailBtn:focus:after {
-  height: 20px;
-}
-
