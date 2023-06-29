@@ -1,6 +1,7 @@
 import React from 'react';
-import film_banner from '../../icon/film_banner.png'
+import film_banner from '../../icon/film_banner.png';
 import css from './BasicInformation.module.css';
+import PropTypes from 'prop-types';
 
 export const BasicInformation = ({ movieDetail }) => {
   const { poster_path, original_title, overview, vote_average, genres } =
@@ -16,11 +17,15 @@ export const BasicInformation = ({ movieDetail }) => {
               className={css.img}
             />
           )}
-          {!poster_path && <img src={film_banner} alt="placard" className={css.img2} />}
+          {!poster_path && (
+            <img src={film_banner} alt="placard" className={css.img2} />
+          )}
         </div>
         <div>
           <h2 className={css.title}>{original_title}</h2>
-          <p className={css.voteAverage}>{Number(Math.round(vote_average * 10))} %</p>
+          <p className={css.voteAverage}>
+            {Number(Math.round(vote_average * 10))} %
+          </p>
           <h4 className={css.titleOverview}>Overview</h4>
           <p className={css.Overview}>{overview}</p>
           <h4 className={css.titleGenres}>Genres</h4>
@@ -35,4 +40,15 @@ export const BasicInformation = ({ movieDetail }) => {
       </div>
     </div>
   );
+};
+
+BasicInformation.protoType = {
+  movieDetail: PropTypes.arrayOf(
+    PropTypes.shape({
+      original_title: PropTypes.string,
+      overview: PropTypes.string,
+      vote_average: PropTypes.number,
+      genres: PropTypes.array,
+    })
+  ),
 };

@@ -10,7 +10,7 @@ const Movies = () => {
   const [searchMovies, setSearchMovies] = useState('');
   const [noResult, setNoResult] = useState(false);
 
-  const queryName = searchParams.get('name') ?? '';
+  const queryName = searchParams.get('query') ?? '';
 
   useEffect(() => {
     if (!queryName) {
@@ -29,8 +29,8 @@ const Movies = () => {
     fetchSearchMovies();
   }, [queryName]);
 
-  const updateQueryString = name => {
-    const nextParams = name !== '' ? { name } : {};
+  const updateQueryString = query => {
+    const nextParams = query !== '' ? { query } : {};
     setSearchParams(nextParams);
   };
 

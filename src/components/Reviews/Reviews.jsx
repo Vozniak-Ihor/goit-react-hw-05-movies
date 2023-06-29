@@ -1,4 +1,4 @@
-import { getMovieReviews } from '../../services/services';
+import { getMovieCastReviews } from '../../services/services';
 import { useState, useEffect, useRef } from 'react';
 import { useParams, NavLink, useLocation } from 'react-router-dom';
 import css from './Reviews.module.css';
@@ -15,12 +15,12 @@ const Reviews = () => {
     setIsEmpty(false);
     const fetchReviews = async () => {
       try {
-        const feedback = await getMovieReviews(id);
-        if (feedback.length === 0) {
+        const feedback = await getMovieCastReviews(id,'reviews');
+        if (feedback.results.length === 0) {
           setIsEmpty(true);
           return;
         }
-        setReviews(feedback);
+        setReviews(feedback.results);
       } catch (error) {
         setError(error);
       }

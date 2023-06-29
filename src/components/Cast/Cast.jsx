@@ -1,4 +1,4 @@
-import { getMovieCast } from '../../services/services';
+import { getMovieCastReviews } from '../../services/services';
 import { useState, useEffect, useRef } from 'react';
 import { useParams, NavLink, useLocation } from 'react-router-dom';
 import css from './Cast.module.css';
@@ -13,8 +13,8 @@ const Cast = () => {
   useEffect(() => {
     const getCast = async () => {
       try {
-        const data = await getMovieCast(id);
-        setCast(data);
+        const data = await getMovieCastReviews(id,'credits');
+        setCast(data.cast);
         console.log(data);
       } catch (error) {
         setError(error);

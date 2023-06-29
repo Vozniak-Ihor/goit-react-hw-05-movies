@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getTrending } from 'services/services';
-import { NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 import css from './Home.module.css';
+
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -19,25 +19,13 @@ const Home = () => {
     };
     fetchMovies();
   }, []);
-  const location = useLocation();
   return (
     <>
       <div className={css.container}>
-        <h1 className={css.title}><span className={css.gg}></span> Trending today</h1>
-        <ul className={css.list}>
-          {movies &&
-            movies.map(({ id, title, name }) => (
-              <li key={id} className={css.item}>
-                <NavLink
-                  to={`/movies/${id}`}
-                  state={{ from: location }}
-                  className={css.link}
-                >
-                  {title || name}
-                </NavLink>
-              </li>
-            ))}
-        </ul>
+        <h1 className={css.title}>
+          <span className={css.gg}></span> Trending today
+        </h1>
+        <MoviesList movies={movies} />
       </div>
       {error && (
         <h3>
