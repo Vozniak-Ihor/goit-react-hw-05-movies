@@ -24,6 +24,7 @@ const Movies = () => {
         setNoResult(true);
         return;
       }
+      console.log(data);
       setSearchMovies(data);
     };
     fetchSearchMovies();
@@ -38,7 +39,7 @@ const Movies = () => {
     <main className={css.container}>
       {noResult && <b>No results for your request</b>}
       <InputMovies value={queryName} onChange={updateQueryString} />
-      <MoviesList movies={searchMovies} />
+      {searchMovies && (<MoviesList movies={searchMovies} />)}
     </main>
   );
 };
